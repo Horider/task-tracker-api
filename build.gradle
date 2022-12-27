@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+    id "io.spring.dependency-management" version "1.1.0"
+    id "org.springframework.boot" version "3.0.1"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+/**
+ * Spring
+ */
+dependencies {
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.0.0'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '3.0.0'
+
+}
+/**
+ * DB
+ */
+dependencies {
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.5.1'
+}
+
+/**
+ * Lombok
+ */
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    testCompileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+}
+
+/**
+ * Test
+ */
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+/**
+ * Other
+ */
+dependencies {
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.0'
+}
+
+test {
+    useJUnitPlatform()
+}
