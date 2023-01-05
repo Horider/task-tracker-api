@@ -22,6 +22,8 @@ public class TaskStateDtoFactory {
                 .id(entity.getId())
                 .name(entity.getName())
                 .createdAt(entity.getCreatedAt())
+                .leftTaskStateId(entity.getLeftTaskState().map(TaskStateEntity::getId).orElse(null))
+                .rightTaskStateId(entity.getRightTaskState().map(TaskStateEntity::getId).orElse(null))
                 .tasks(
                         entity
                                 .getTasks()
